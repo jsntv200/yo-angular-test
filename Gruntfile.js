@@ -401,13 +401,19 @@ module.exports = function (grunt) {
         dir:     'dist',
         commit:  true,
         push:    true,
+        tag:     '<%= yeoman.pkg.version %>',
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
       production: {
         options: {
           remote: 'git@github.com:jsntv200/yo-angular-test.git',
-          branch: 'production',
-          tag:    '<%= yeoman.pkg.version %>'
+          branch: 'production'
+        }
+      },
+      heroku: {
+        options: {
+          remote: 'git@heroku.com:polar-ocean-4778.git',
+          branch: 'master'
         }
       }
     }
