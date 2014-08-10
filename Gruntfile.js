@@ -403,11 +403,10 @@ module.exports = function (grunt) {
         push:    true,
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
-      heroku: {
+      production: {
         options: {
-          //remote: 'git@heroku.com:yo-angular-test.git',
-          remote: 'git@heroku.com:polar-ocean-4778.git',
-          branch: 'master',
+          remote: 'git@github.com:jsntv200/yo-angular-test.git',
+          branch: 'production',
           tag:    '<%= yeoman.pkg.version %>'
         }
       }
@@ -460,10 +459,12 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('deploy', 'Build and Deploy app to Heroku', [
-    'build',
-    'buildcontrol'
-  ]);
+  grunt.registerTask('deploy', 'Build and deploy app to an environment', function(target) {
+    grunt.task.run([
+      'build'
+      'buildcontrol:' + target
+    ]);
+  });
 
   grunt.registerTask('default', [
     'newer:jshint',
