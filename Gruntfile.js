@@ -461,7 +461,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('deploy', 'Build and deploy app to an environment', function(target) {
     grunt.task.run([
-      'build'
+      'build',
       'buildcontrol:' + target
     ]);
   });
