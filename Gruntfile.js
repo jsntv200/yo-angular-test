@@ -346,22 +346,22 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/*',
-
-            // Files for Heroku
-            'Procfile',
-            'package.json',
-            'server.js'
+            'fonts/*'
           ]
-        }, {
+        },{
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }, {
+        },{
           expand: true,
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+          dest: '<%= yeoman.dist %>'
+        },{
+          expand: true,
+          cwd: '.',
+          src: ['Procfile', 'package.json', 'server.js'],
           dest: '<%= yeoman.dist %>'
         }]
       },
