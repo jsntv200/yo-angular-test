@@ -396,18 +396,25 @@ module.exports = function (grunt) {
       }
     },
 
+    bump: {
+      options: {
+        pushTo:    'origin',
+        createTag: false
+      }
+    },
+
     buildcontrol: {
       options: {
         dir:     'dist',
         commit:  true,
         push:    true,
-        tag:     '<%= yeoman.pkg.version %>',
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
       production: {
         options: {
           remote: 'git@github.com:jsntv200/yo-angular-test.git',
-          branch: 'production'
+          branch: 'production',
+          tag:     '<%= yeoman.pkg.version %>'
         }
       },
       heroku: {
@@ -466,10 +473,16 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('deploy', 'Build and deploy app to an environment', function(target) {
-    grunt.task.run([
+    var tasks = [];
+
+    if (target === 'production') {
+      tasks.push('bump');
+    }
+
+    grunt.task.run(tasks.concat([
       'build',
       'buildcontrol:' + target
-    ]);
+    ]));
   });
 
   grunt.registerTask('default', [
