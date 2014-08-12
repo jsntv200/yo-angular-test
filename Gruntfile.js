@@ -417,9 +417,9 @@ module.exports = function (grunt) {
           tag:    'v<%= yeoman.pkg.version %>'
         }
       },
-      staging: {
+      uat: {
         options: {
-          branch: 'deploy-staging'
+          branch: 'deploy-uat'
         }
       },
       heroku: {
