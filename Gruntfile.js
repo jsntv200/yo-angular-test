@@ -419,7 +419,7 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:polar-ocean-4778.git',
+          remote: 'git@heroku.com:yo-angular-test.git',
           branch: 'master'
         }
       }
