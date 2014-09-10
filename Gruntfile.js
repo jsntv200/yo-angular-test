@@ -411,7 +411,7 @@ module.exports = function (grunt) {
         remote:  'git@github.com:jsntv200/yo-angular-test.git',
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
-      dist: {
+      production: {
         options: {
           branch: 'release',
           tag:    'v<%= yeoman.pkg.version %>'
