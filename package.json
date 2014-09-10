@@ -1,10 +1,10 @@
 {
   "name": "yo-angular-test",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Testing grunt buildcontrol",
   "dependencies": {
-    "gzippo": "^0.2.0",
-    "express": "^4.8.2"
+    "gzippo": "~0.2.0",
+    "express": "~4.9.0"
   },
   "devDependencies": {
     "grunt": "^0.4.1",
